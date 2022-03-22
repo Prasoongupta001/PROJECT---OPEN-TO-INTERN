@@ -2,7 +2,6 @@ const express = require('express');
 var bodyParser = require('body-parser');
 
 const route = require('./routes/route.js');
-
 const app = express();
 
 
@@ -11,8 +10,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 const mongoose = require('mongoose')
 
-mongoose.connect("", {useNewUrlParser: true})
-    .then(() => console.log('mongodb running on 27017'))
+mongoose.connect("mongodb+srv://Prasoon:nKTyhNdAfRpxMY7N@cluster0.vjjsq.mongodb.net/Prasoon001?retryWrites=true&w=majority", {useNewUrlParser: true ,  useUnifiedTopology: true })
+    .then(() => console.log('mongodb is connected'))
     .catch(err => console.log(err))
 
 app.use('/functionup', route);
